@@ -28,4 +28,10 @@ urlpatterns = [
 
     # Wiki App
     path('', include('wiki.urls')),
+
+    # Forms
+    path('accounts/', include ('django.contrib.auth.urls')),
+
+    # Sign Up
+    path('signup/', include('accounts.urls')),
 ]
