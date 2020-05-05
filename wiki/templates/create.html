@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form action="{% url 'submit-wiki' %}" method="POST">
+        {% csrf_token %}
+        {{ page_form }}
+
+        <button type="submit">Submit!</button>
+
+    </form>
+{% endblock %}
