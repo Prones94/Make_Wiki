@@ -66,7 +66,7 @@ class PageDetailViewTests(TestCase):
 
 class PageCreateViewTests(TestCase):
     def test_create_page(self):
-        user - User.objects.create()
+        user = User.objects.create()
         data = {'title': "A test page",
             'author': user,
             'content': "Another test"}
