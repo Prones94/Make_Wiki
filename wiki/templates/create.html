@@ -1,9 +1,24 @@
 {% extends 'base.html' %}
 
+{% if form.errors %}
+    {% for field in form %}
+        {% for error in field.errors %}
+            <div class="alert alert-danger">
+                <strong>{{ error|escape }}</strong>
+            </div>
+        {% endfor %}
+    {% endfor %}
+    {% for error in form.non_field_errors %}
+        <div class="alert alert-danger">
+            <strong>{{ error|escape }}</strong>
+        </div>
+    {% endfor %}
+{% endif %}
+
 {% block content %}
-    <form action="{% url 'submit-wiki' %}" method="POST">
+    <form method="POST">
         {% csrf_token %}
-        {{ page_form }}
+        {{ form.as_p }}
 
         <button type="submit">Submit!</button>
 
